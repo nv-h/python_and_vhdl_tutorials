@@ -100,8 +100,9 @@ OpenWeatherについてはAPIキーの取得が必要だが、キーの発行は
 
 現時点ではヒントのみを記載しておく。各自コーディングする。(なんか同じ人のブログばっかりひっかかるが知り合いではない)
 
-* [Python, pandasでwebページの表（htmlのtable）をスクレイピング](https://note.nkmk.me/python-pandas-web-html-table-scraping/)
-* [pandasでcsvファイルの書き出し・追記（to_csv](https://note.nkmk.me/python-pandas-to-csv/)
+* ~~[Python, pandasでwebページの表（htmlのtable）をスクレイピング](https://note.nkmk.me/python-pandas-web-html-table-scraping/)~~ ここのコードは、`html5lib`と`beautifulsoup4`というパッケージに依存している
+* [Python用データ分析ツールpandasのread_html関数の使い方](https://shirabeta.net/How-To-Use-pandas.read_html.html) プレーン(?)なpandas(+lxml)だけでスクレイピングする例
+* [pandasでcsvファイルの書き出し・追記（to_csv）](https://note.nkmk.me/python-pandas-to-csv/)
 * [pandasのplotメソッドでグラフを作成しデータを可視化](https://note.nkmk.me/python-pandas-plot/)
 
 OpenWeatherのデータ取得はスクレイピングではないので、`urllib.request`などを使用してAPIアクセスする必要がある。
