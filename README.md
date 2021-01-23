@@ -133,3 +133,34 @@ print(json_obj)
 # グラフ表示に向けてpandasデータフレーム形式に変換
 pd.json_normalize(json_obj['list'])
 ```
+
+
+## I2Cセンサーの値を読む
+
+一般的に、マイコンなどに低速の外部機器を接続する場合は[I2C](https://ja.wikipedia.org/wiki/I2C)や[SPI](https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%AA%E3%82%A2%E3%83%AB%E3%83%BB%E3%83%9A%E3%83%AA%E3%83%95%E3%82%A7%E3%83%A9%E3%83%AB%E3%83%BB%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9)などのインターフェイスが使用される。
+どちらも接続ピンを少なくするためにシリアルバス方式になっていて、以下のように接続される。
+
+I2C
+
+![](images/I2C.svg)
+
+SPI
+
+![](images/SPI_three_slaves.svg)
+
+上記2つの画像は "en:user:Cburnett - Own work made with Inkscape, CC 表示-継承 3.0"
+
+今回SPIを選択しなかったのは、送受信が同時に起こるためソフトウェアで扱いづらいためである。
+個人的な印象ではI2Cのデバイスは相性問題が発生しやすく、SPIのデバイスの方が安定しているイメージである。
+また、SPIは接続ピン数が多くなる代わりに高速に通信できるものが多い。
+最近のFPGAやマイコンのFlashメモリにはQSPI(Quad SPI)というSPIベースのインターフェイスで接続するものが使われることが多い。
+QSPIのFlashメモリは少ないピン本数としては比較的高速(100MHzとか)に動作する。
+
+
+### 使用するI2Cセンサ
+
+はんだ付けをしたくない場合は、[Qwiic](https://www.sparkfun.com/qwiic)接続のものを使うといいと思う。
+今回は例として[Qwiic - BME280搭載 環境センサモジュール](https://www.switch-science.com/catalog/5862/)を使うことにする。(1,794円)
+マイコンなどとの接続には[Qwiic - ケーブルキット](https://www.switch-science.com/catalog/5964/)を使用する。(1,073円)
+
+
