@@ -1,8 +1,12 @@
-# Pythonのチュートリアル
+# PythonとVHDLを使ったチュートリアル
 
-## 環境構築
+PythonとVHDLについて、ざっくり習得する。
 
-### Windowsの場合
+## Pythonのチュートリアル
+
+### 環境構築
+
+#### Windowsの場合
 
 Windowsの場合、[Python 3.8.7](https://www.python.org/downloads/release/python-387/)の下のほうにある、`Windows installer (64-bit)`からインストーラーをダウンロードしてPythonのランタイムをインストールする。
 現時点(2021/1/20)での最新版は3.9系だが、別途インストールするパッケージ(ライブラリ)が対応していなかったりするトラブルが発生する可能性があるので、ひとつ前の3.8系のものをインストールするのが良い。
@@ -33,14 +37,14 @@ PATHが通って入ればPythonを使う準備は完了で、以下のコマン�
 Python 3.8.7
 ```
 
-#### エディタ
+##### エディタ
 
 Pythonスクリプトのコードを書くのに、メモ帳ではない高機能なエディタを使用すると効率が上がる。
 最近は[Visual Studio Code(VSCode)](https://azure.microsoft.com/ja-jp/products/visual-studio-code/)を入れておけば大丈夫という風潮。
 社内規定などでインストールして使うのに不都合があればポータブル版もある。
 
 
-#### Pythonスクリプトの実行
+##### Pythonスクリプトの実行
 
 以下の1行だけのファイルを作成して、`hello.py`という名前で保存する。
 
@@ -55,7 +59,7 @@ print("Hello.")
 python hello.py
 ```
 
-#### pipパッケージのインストール
+##### pipパッケージのインストール
 
 VPNや社内ネットワークなど、プロキシ環境下の場合は事前に付属の`pip_proxy_on.bat`を参考にプロキシの設定を行う必要がある。
 ユーザ名やパスワードは適宜変更が必要だが、記号類はURLエンコードする必要があることに注意すること。
@@ -79,9 +83,9 @@ pip install numpy pandas matplotlib pylint lxml
 * [Pylint](https://www.pylint.org/): Pythonの文法チェック(リント)を行うツール。入れておくとVSCodeなどのエディタで自動的に文法チェックしてくれる。
 * [lxml](https://lxml.de/): pandasでHTMLのスクレイピングをするときに必要になるやつ。直接は使わない。
 
-## 気象庁データのスクレイピング
+### 気象庁データのスクレイピング
 
-### 前提
+#### 前提
 
 * ここでやりたいこと
     + 気象庁の過去の気象データをスクレイピングして、テキスト保存
@@ -96,7 +100,7 @@ pip install numpy pandas matplotlib pylint lxml
 OpenWeatherについてはAPIキーの取得が必要だが、キーの発行は登録から数時間かかるので注意。
 
 
-### 実装
+#### 実装
 
 現時点ではヒントのみを記載しておく。各自コーディングする。(なんか同じ人のブログばっかりひっかかるが知り合いではない)
 
@@ -135,7 +139,7 @@ pd.json_normalize(json_obj['list'])
 ```
 
 
-## I2Cセンサーの値を読む
+### I2Cセンサーの値を読む
 
 一般的に、マイコンなどに低速の外部機器を接続する場合は[I2C](https://ja.wikipedia.org/wiki/I2C)や[SPI](https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%AA%E3%82%A2%E3%83%AB%E3%83%BB%E3%83%9A%E3%83%AA%E3%83%95%E3%82%A7%E3%83%A9%E3%83%AB%E3%83%BB%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9)などのインターフェイスが使用される。
 どちらも接続ピンを少なくするためにシリアルバス方式になっていて、以下のように接続される。
@@ -157,10 +161,20 @@ SPI
 QSPIのFlashメモリは少ないピン本数としては比較的高速(100MHzとか)に動作する。
 
 
-### 使用するI2Cセンサ
+#### 使用するI2Cセンサ
 
 はんだ付けをしたくない場合は、[Qwiic](https://www.sparkfun.com/qwiic)接続のものを使うといいと思う。
 今回は例として[Qwiic - BME280搭載 環境センサモジュール](https://www.switch-science.com/catalog/5862/)を使うことにする。(1,794円)
 マイコンなどとの接続には[Qwiic - ケーブルキット](https://www.switch-science.com/catalog/5964/)を使用する。(1,073円)
 
 
+#### 使用するマイコンなど(作成途中)
+
+
+
+## VHDLのチュートリアル(作成途中)
+
+### 環境構築
+
+シミュレータについて、[install_VHDL_simurators.md](docs/install_VHDL_simurators.md)に記載した。
+以降、なるべくこれらのシミュレータに関する記述を併記する。
