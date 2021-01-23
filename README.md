@@ -156,6 +156,7 @@ SPI
 
 今回SPIを選択しなかったのは、送受信が同時に起こるためソフトウェアで扱いづらいためである。
 個人的な印象ではI2Cのデバイスは相性問題が発生しやすく、SPIのデバイスの方が安定しているイメージである。
+
 また、SPIは接続ピン数が多くなる代わりに高速に通信できるものが多い。
 最近のFPGAやマイコンのFlashメモリにはQSPI(Quad SPI)というSPIベースのインターフェイスで接続するものが使われることが多い。
 QSPIのFlashメモリは少ないピン本数としては比較的高速(100MHzとか)に動作する。
@@ -164,8 +165,10 @@ QSPIのFlashメモリは少ないピン本数としては比較的高速(100MHz�
 #### 使用するI2Cセンサ
 
 はんだ付けをしたくない場合は、[Qwiic](https://www.sparkfun.com/qwiic)接続のものを使うといいと思う。
-今回は例として[Qwiic - BME280搭載 環境センサモジュール](https://www.switch-science.com/catalog/5862/)を使うことにする。(1,794円)
-マイコンなどとの接続には[Qwiic - ケーブルキット](https://www.switch-science.com/catalog/5964/)を使用する。(1,073円)
+今回は例として以下のものを使うことにする。(センサ1,794円、ケーブルキット1,073円)
+
+* [Qwiic - BME280搭載 環境センサモジュール](https://www.switch-science.com/catalog/5862/)
+* [Qwiic - ケーブルキット](https://www.switch-science.com/catalog/5964/)
 
 
 #### 使用するマイコンなど(作成途中)
